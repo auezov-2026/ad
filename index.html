@@ -1,376 +1,919 @@
 <!DOCTYPE html>
-<html lang="kk" class="scroll-smooth">
+<html lang="kk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Бітіруші Түлектер 2026 | Шақырту</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            navy: '#0a1128',
-                            gold: '#d4af37',
-                            light: '#fdfbf7',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <style>
-        .gold-text-gradient {
-            background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-        }
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0a1128; }
-        ::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 4px; }
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Бітіруші Түлектер 2026 | Шақырту</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --gold: #c9a84c;
+      --gold2: #e8c97a;
+      --dark: #080808;
+      --cream: #f9f4ec;
+      --muted: #9a8e7e;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
 
-        /* Animations */
-        @keyframes backgroundZoom {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.1); }
-        }
-        @keyframes float {
-            0% { transform: translate(-50%, 0px); }
-            50% { transform: translate(-50%, -15px); }
-            100% { transform: translate(-50%, 0px); }
-        }
-        @keyframes pulseGlow {
-            0% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.05); }
-            100% { opacity: 0.3; transform: scale(1); }
-        }
-        
-        .bg-zoom {
-            animation: backgroundZoom 25s infinite alternate linear;
-        }
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-        .animate-pulse-glow {
-            animation: pulseGlow 4s infinite alternate;
-        }
+    body {
+      background: var(--dark);
+      color: var(--cream);
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+    }
 
-        /* Scroll Reveal Utility Classes */
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s cubic-bezier(0.5, 0, 0, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .reveal-delay-1 { transition-delay: 0.2s; }
-        .reveal-delay-2 { transition-delay: 0.4s; }
-        
-        /* Initial Load Animations */
-        .fade-in-down { animation: fadeInDown 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; opacity: 0; }
-        .fade-in-up { animation: fadeInUp 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; opacity: 0; animation-delay: 0.5s; }
-        
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+    /* ═══════════════════════════════
+       DEEP SPACE BACKGROUND
+    ═══════════════════════════════ */
+    #bg {
+      position: fixed; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse at 20% 30%, rgba(30,18,5,0.95) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 70%, rgba(15,10,2,0.9) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(8,5,1,1) 0%, transparent 80%),
+        linear-gradient(160deg, #04030a 0%, #070508 30%, #050308 60%, #080503 100%);
+    }
+    /* Subtle nebula glow layers */
+    #bg::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 25% 45%, rgba(120,80,10,0.06) 0%, transparent 100%),
+        radial-gradient(ellipse 40% 60% at 75% 35%, rgba(60,30,5,0.05) 0%, transparent 100%),
+        radial-gradient(ellipse 50% 30% at 50% 80%, rgba(100,60,8,0.04) 0%, transparent 100%);
+    }
+    #bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url('bg.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.18;
+    }
+
+    /* ═══════════════════════════════
+       STATIC STAR FIELD
+    ═══════════════════════════════ */
+    #particles {
+      position: fixed; inset: 0; z-index: 1;
+      pointer-events: none; overflow: hidden;
+    }
+    /* tiny static dots = background stars */
+    .sdot {
+      position: absolute; border-radius: 50%;
+      background: #fff;
+      animation: twinkle var(--td) var(--tdelay) infinite ease-in-out alternate;
+    }
+    @keyframes twinkle {
+      0%   { opacity: var(--ta); transform: scale(0.8); }
+      50%  { opacity: var(--tb); transform: scale(1.2); }
+      100% { opacity: var(--ta); transform: scale(0.9); }
+    }
+
+    /* ═══════════════════════════════
+       FLYING STARS / METEORS
+    ═══════════════════════════════ */
+    #stars {
+      position: fixed; inset: 0; z-index: 2;
+      pointer-events: none; overflow: hidden;
+    }
+    /* flying dot — moves diagonally across screen */
+    .fstar {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, #fff 0%, rgba(201,168,76,0.6) 40%, transparent 100%);
+      animation: flyAcross var(--fd) var(--fdelay) infinite linear;
+      opacity: 0;
+    }
+    @keyframes flyAcross {
+      0%   { transform: translate(0, 0) scale(0.3); opacity: 0; }
+      5%   { opacity: var(--fop); }
+      85%  { opacity: var(--fop); }
+      100% { transform: translate(var(--fx), var(--fy)) scale(0.1); opacity: 0; }
+    }
+    /* gold dust particles floating up slowly */
+    .petal {
+      position: absolute;
+      width: var(--s); height: var(--s);
+      background: radial-gradient(circle, rgba(201,168,76,0.9) 0%, rgba(201,168,76,0.2) 50%, transparent 100%);
+      border-radius: 50%;
+      animation: floatUp var(--d) var(--delay) infinite ease-in-out;
+      opacity: 0;
+    }
+    @keyframes floatUp {
+      0%   { transform: translateY(105vh) translateX(0) scale(0.3); opacity: 0; }
+      8%   { opacity: var(--op); }
+      50%  { transform: translateY(50vh) translateX(var(--drift)) scale(1); }
+      92%  { opacity: var(--op); }
+      100% { transform: translateY(-8vh) translateX(calc(var(--drift)*1.8)) scale(0.2); opacity: 0; }
+    }    /* ═══════════════════════════════
+       NAV
+    ═══════════════════════════════ */
+    nav {
+      position: fixed; top:0; left:0; right:0;
+      z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 3rem;
+      transition: background 0.5s, backdrop-filter 0.5s;
+    }
+    nav.scrolled {
+      background: rgba(0,0,0,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      letter-spacing: 0.28em;
+      color: var(--gold);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      transition: color 0.3s, opacity 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); opacity: 1; }
+
+    /* ═══════════════════════════════
+       HERO
+    ═══════════════════════════════ */
+    #hero {
+      position: relative; z-index: 10;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 7rem 2rem 5rem;
+      overflow: hidden;
+    }
+    #hero::before { display: none; }
+
+    .hero-glow {
+      position: absolute;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 65%);
+      border-radius: 50%;
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      pointer-events: none;
+      z-index: 2;
+      animation: glowPulse 4s infinite ease-in-out alternate;
+    }
+    @keyframes glowPulse {
+      from { opacity: 0.5; transform: translate(-50%,-50%) scale(0.9); }
+      to   { opacity: 1;   transform: translate(-50%,-50%) scale(1.1); }
+    }
+
+    .hero-year {
+      position: absolute;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(8rem, 22vw, 18rem);
+      font-weight: 300;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(201,168,76,0.18);
+      letter-spacing: -0.02em;
+      top: 50%; left: 50%;
+      transform: translate(-50%,-54%);
+      pointer-events: none; user-select: none;
+      z-index: 2;
+      animation: yearFloat 6s ease-in-out infinite alternate;
+    }
+    @keyframes yearFloat {
+      from { transform: translate(-50%,-54%) translateY(0); }
+      to   { transform: translate(-50%,-54%) translateY(-18px); }
+    }
+
+    .hero-ring {
+      position: absolute;
+      width: 340px; height: 340px;
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 50%;
+      z-index: 2;
+      animation: ringRotate 20s linear infinite;
+      pointer-events: none;
+    }
+    .hero-ring::before {
+      content: '';
+      position: absolute;
+      width: 8px; height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      top: -4px; left: 50%;
+      transform: translateX(-50%);
+    }
+    @keyframes ringRotate { to { transform: rotate(360deg); } }
+    .hero-ring-2 {
+      width: 420px; height: 420px;
+      animation-duration: 35s;
+      animation-direction: reverse;
+      border-color: rgba(201,168,76,0.08);
+    }
+
+    .hero-content { position: relative; z-index: 3; }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.6rem;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.4);
+      padding: 0.4rem 1.6rem;
+      margin-bottom: 2.2rem;
+      opacity: 0;
+      animation: riseIn 0.9s 0.3s forwards;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.2rem, 9vw, 7.5rem);
+      font-weight: 300;
+      line-height: 0.95;
+      letter-spacing: 0.06em;
+      color: #fff;
+      text-shadow: 0 4px 30px rgba(0,0,0,0.6);
+      opacity: 0;
+      animation: riseIn 0.9s 0.5s forwards;
+    }
+    .hero-title em { color: var(--gold2); font-style: italic; }
+    .hero-sub {
+      margin-top: 1.6rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+      opacity: 0;
+      animation: riseIn 0.9s 0.7s forwards;
+    }
+
+    .ornament {
+      display: flex; align-items: center; gap: 1rem;
+      max-width: 300px; margin: 2.5rem auto 0;
+      opacity: 0; animation: riseIn 0.9s 0.9s forwards;
+    }
+    .ornament::before, .ornament::after {
+      content: ''; flex: 1; height: 1px;
+    }
+    .ornament::before { background: linear-gradient(to right, transparent, var(--gold)); }
+    .ornament::after  { background: linear-gradient(to left,  transparent, var(--gold)); }
+    .ornament-diamond { width: 7px; height: 7px; background: var(--gold); transform: rotate(45deg); }
+
+    /* Scroll indicator */
+    .scroll-ind {
+      position: absolute; bottom: 2.5rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase;
+      z-index: 3;
+      opacity: 0; animation: fadeIn 1s 1.8s forwards;
+    }
+    .scroll-dot {
+      width: 1px; height: 50px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollPulse 2s 2s infinite;
+      transform-origin: top;
+    }
+    @keyframes scrollPulse {
+      0%   { transform: scaleY(0); opacity: 1; }
+      60%  { transform: scaleY(1); opacity: 1; }
+      100% { transform: scaleY(1); opacity: 0; }
+    }
+
+    /* ═══════════════════════════════
+       VIDEO SECTION
+    ═══════════════════════════════ */
+    #video-section {
+      position: relative; z-index: 10;
+      padding: 7rem 2rem;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(14px);
+      border-top: 1px solid rgba(201,168,76,0.15);
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+      text-align: center;
+    }
+    .video-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .video-tag {
+      font-size: 0.58rem; letter-spacing: 0.45em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+    .video-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 300;
+      color: #fff;
+      margin-bottom: 3rem;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+    }
+    .video-wrap { padding-top: 0; }
+    .video-frame-outer {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 */
+      border: 1px solid rgba(201,168,76,0.3);
+      box-shadow:
+        0 0 60px rgba(201,168,76,0.12),
+        0 0 120px rgba(201,168,76,0.06),
+        inset 0 0 40px rgba(0,0,0,0.4);
+      background: #000;
+    }
+    .video-frame-outer::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      background: linear-gradient(135deg, rgba(201,168,76,0.4) 0%, transparent 50%, rgba(201,168,76,0.2) 100%);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .video-frame-outer iframe {
+      position: absolute;
+      inset: 0; width: 100%; height: 100%;
+      border: none; z-index: 1;
+    }
+    /* Corner decorations */
+    .video-corner {
+      position: absolute;
+      width: 24px; height: 24px;
+      z-index: 2; pointer-events: none;
+    }
+    .video-corner::before, .video-corner::after {
+      content: '';
+      position: absolute;
+      background: var(--gold);
+    }
+    .video-corner::before { width: 100%; height: 1.5px; top: 0; left: 0; }
+    .video-corner::after  { width: 1.5px; height: 100%; top: 0; left: 0; }
+    .vc-tl { top: -1px; left: -1px; }
+    .vc-tr { top: -1px; right: -1px; transform: scaleX(-1); }
+    .vc-bl { bottom: -1px; left: -1px; transform: scaleY(-1); }
+    .vc-br { bottom: -1px; right: -1px; transform: scale(-1); }
+    .video-ornament {
+      display: flex; align-items: center; gap: 1rem;
+      max-width: 200px; margin: 2.5rem auto 0;
+    }
+    .video-ornament::before, .video-ornament::after {
+      content: ''; flex: 1; height: 1px;
+    }
+    .video-ornament::before { background: linear-gradient(to right, transparent, var(--gold)); }
+    .video-ornament::after  { background: linear-gradient(to left,  transparent, var(--gold)); }
+    .video-ornament-dot { width: 5px; height: 5px; background: var(--gold); border-radius: 50%; }
+
+    /* ═══════════════════════════════
+       SECTION COMMON
+    ═══════════════════════════════ */
+    section { position: relative; z-index: 10; }
+    .section-tag {
+      font-size: 0.58rem; letter-spacing: 0.45em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+    .section-h {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 300; line-height: 1;
+      color: #fff;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+    }
+
+    /* ═══════════════════════════════
+       DETAILS
+    ═══════════════════════════════ */
+    #details {
+      padding: 9rem 2rem;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid rgba(201,168,76,0.1);
+    }
+    .details-wrap { max-width: 700px; margin: 0 auto; text-align: center; }
+    .cards-stack { display: flex; flex-direction: column; gap: 1.4rem; margin-top: 3rem; }
+    .info-card {
+      padding: 1.8rem 2rem;
+      border: 1px solid rgba(201,168,76,0.2);
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(6px);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.4s, transform 0.3s;
+      text-align: left;
+    }
+    .info-card::before {
+      content: ''; position: absolute;
+      left: 0; top: 0; bottom: 0; width: 3px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+    }
+    .info-card:hover { border-color: rgba(201,168,76,0.5); transform: translateX(4px); }
+    .card-label { font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.6rem; }
+    .card-val { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; color: #fff; line-height: 1.1; }
+    .card-sub { font-size: 0.72rem; color: var(--muted); margin-top: 0.3rem; }
+    .map-link {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      margin-top: 0.9rem; color: var(--gold);
+      text-decoration: none; font-size: 0.67rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      transition: opacity 0.3s;
+    }
+    .map-link:hover { opacity: 0.7; }
+    .map-link svg { width: 13px; height: 13px; }
+
+    /* ═══════════════════════════════
+       WISHES
+    ═══════════════════════════════ */
+    #wishes {
+      padding: 10rem 2rem;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(201,168,76,0.12);
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+    }
+    .wishes-wrap {
+      max-width: 860px; margin: 0 auto;
+      text-align: center;
+    }
+
+    /* Decorative top element */
+    .wish-deco {
+      margin-bottom: 3rem;
+    }
+    .wish-deco-line {
+      display: flex; align-items: center; gap: 1.2rem;
+      margin-bottom: 1.2rem;
+    }
+    .wish-deco-line::before, .wish-deco-line::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(to var(--dir, right), transparent, rgba(201,168,76,0.5));
+    }
+    .wish-deco-line::after { --dir: left; }
+    .wish-deco-center {
+      display: flex; gap: 0.5rem; align-items: center;
+    }
+    .wish-deco-star {
+      width: 6px; height: 6px;
+      background: var(--gold);
+      transform: rotate(45deg);
+    }
+    .wish-deco-star-sm {
+      width: 4px; height: 4px;
+      background: rgba(201,168,76,0.5);
+      transform: rotate(45deg);
+    }
+
+    .wish-section-tag {
+      font-size: 0.58rem; letter-spacing: 0.55em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+    .wish-section-h {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 300; font-style: italic;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 3.5rem;
+      text-shadow: 0 2px 20px rgba(201,168,76,0.2);
+    }
+
+    /* Card for wish text */
+    .wish-card {
+      position: relative;
+      padding: 3.5rem 4rem;
+      border: 1px solid rgba(201,168,76,0.2);
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(8px);
+      overflow: hidden;
+    }
+    .wish-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    /* Corner accents */
+    .wish-card-corner {
+      position: absolute;
+      width: 30px; height: 30px;
+      pointer-events: none;
+    }
+    .wish-card-corner::before, .wish-card-corner::after {
+      content: ''; position: absolute;
+      background: var(--gold);
+    }
+    .wish-card-corner::before { width: 100%; height: 1px; top: 0; left: 0; }
+    .wish-card-corner::after  { width: 1px; height: 100%; top: 0; left: 0; }
+    .wcc-tl { top: 0; left: 0; }
+    .wcc-tr { top: 0; right: 0; transform: scaleX(-1); }
+    .wcc-bl { bottom: 0; left: 0; transform: scaleY(-1); }
+    .wcc-br { bottom: 0; right: 0; transform: scale(-1); }
+
+    .wish-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.15rem, 2.4vw, 1.55rem);
+      font-weight: 300; font-style: italic;
+      line-height: 2.1;
+      color: rgba(255,255,255,0.92);
+      text-shadow: 0 2px 15px rgba(0,0,0,0.4);
+      position: relative; z-index: 1;
+    }
+    .wish-text span {
+      display: inline-block;
+      opacity: 0;
+      animation: wordIn 0.5s forwards;
+    }
+    @keyframes wordIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Bottom deco */
+    .wish-bottom {
+      margin-top: 3rem;
+      display: flex; flex-direction: column; align-items: center; gap: 1rem;
+    }
+    .wish-bottom-line {
+      display: flex; align-items: center; gap: 1rem;
+      width: 100%; max-width: 300px;
+    }
+    .wish-bottom-line::before, .wish-bottom-line::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(to var(--dir2, right), transparent, rgba(201,168,76,0.4));
+    }
+    .wish-bottom-line::after { --dir2: left; }
+    .wish-diamond { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); }
+    .wish-by { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--muted); }
+
+    /* ═══════════════════════════════
+       ORGANIZERS
+    ═══════════════════════════════ */
+    #organizers {
+      padding: 9rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Organizers section own background */
+    #organizers::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url('bg2.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 0;
+    }
+    #organizers::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(0,0,0,0.82) 0%,
+        rgba(0,0,0,0.65) 50%,
+        rgba(0,0,0,0.85) 100%
+      );
+      z-index: 0;
+    }
+    #organizers > * { position: relative; z-index: 1; }
+    .org-card {
+      display: inline-flex; align-items: center; gap: 2rem;
+      margin-top: 3.5rem;
+      padding: 2.2rem 3.5rem;
+      border: 1px solid rgba(201,168,76,0.25);
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(10px);
+      transition: border-color 0.4s, transform 0.3s;
+    }
+    .org-card:hover { border-color: rgba(201,168,76,0.55); transform: translateY(-4px); }
+    .org-icon { font-size: 3rem; animation: iconBob 3s ease-in-out infinite alternate; }
+    @keyframes iconBob {
+      from { transform: translateY(0); }
+      to   { transform: translateY(-8px); }
+    }
+    .org-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: #fff; }
+    .org-sub { font-size: 0.68rem; color: var(--muted); letter-spacing: 0.1em; margin-top: 0.4rem; }
+
+    /* ═══════════════════════════════
+       FOOTER
+    ═══════════════════════════════ */
+    footer {
+      position: relative; z-index: 10;
+      max-width: 1080px; margin: 0 auto;
+      padding: 3rem 2rem;
+      border-top: 1px solid rgba(201,168,76,0.12);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .f-logo { font-family: 'Cormorant Garamond', serif; color: var(--gold); font-size: 1rem; letter-spacing: 0.2em; text-transform: uppercase; }
+    .f-copy  { font-size: 0.62rem; color: var(--muted); letter-spacing: 0.1em; }
+
+    /* ═══════════════════════════════
+       ANIMATIONS
+    ═══════════════════════════════ */
+    @keyframes riseIn {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; } to { opacity: 1; }
+    }
+    .reveal {
+      opacity: 0; transform: translateY(45px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    /* ═══════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════ */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+      .org-card { flex-direction: column; padding: 2rem; }
+      .hero-ring, .hero-ring-2 { display: none; }
+      .wish-card { padding: 2.5rem 1.8rem; }
+    }
+    @media (max-width: 480px) {
+      .nav-links { display: none; }
+      .wish-card { padding: 2rem 1.2rem; }
+    }
+  </style>
 </head>
-<body class="bg-brand-navy text-gray-100 font-sans antialiased overflow-x-hidden selection:bg-brand-gold selection:text-brand-navy">
-    <canvas id="confettiCanvas" class="fixed inset-0 pointer-events-none z-50 w-full h-full"></canvas>
+<body>
 
-    <!-- Header -->
-    <header class="fixed top-0 left-0 w-full z-40 bg-brand-navy/70 backdrop-blur-lg border-b border-brand-gold/10 px-6 py-4 transition-all duration-300">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="#" class="text-xl md:text-2xl font-serif font-bold tracking-widest text-brand-gold hover:scale-105 transition-transform duration-300">TULEKTER 2026</a>
-            
-            <nav class="hidden md:flex space-x-8 text-xs uppercase tracking-widest font-medium">
-                <a href="#hero" class="relative group text-gray-300 hover:text-brand-gold transition-colors duration-300">
-                    Басты бет
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2px] bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#details" class="relative group text-gray-300 hover:text-brand-gold transition-colors duration-300">
-                    Ақпарат
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2px] bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#wishes" class="relative group text-gray-300 hover:text-brand-gold transition-colors duration-300">
-                    Тілектер
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2px] bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#organizers" class="relative group text-gray-300 hover:text-brand-gold transition-colors duration-300">
-                    Ұйымдастырушылар
-                    <span class="absolute -bottom-1 left-0 w-0 h-[2px] bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
-                </a>
-            </nav>
+<div id="bg"></div>
+<div id="particles"></div>
+<div id="stars"></div>
 
-            <div class="flex items-center gap-5">
-                <button onclick="triggerConfetti()" class="text-2xl hover:scale-125 transition-transform duration-300 cursor-pointer drop-shadow-lg" title="Конфетти шашу">🎉</button>
-            </div>
+
+<nav id="nav">
+  <a href="#hero" class="nav-logo">Түлектер 2026</a>
+  <ul class="nav-links">
+    <li><a href="#hero">Басты бет</a></li>
+    <li><a href="#details">Ақпарат</a></li>
+    <li><a href="#wishes">Тілектер</a></li>
+    <li><a href="#organizers">Ұйымдастырушылар</a></li>
+  </ul>
+</nav>
+
+
+<!-- ══════════ HERO ══════════ -->
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-ring"></div>
+  <div class="hero-ring hero-ring-2"></div>
+  <div class="hero-year">2026</div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">М.Әуезов атындағы мектеп</div>
+    <h1 class="hero-title">
+      Шақырту <em>Хат</em>
+    </h1>
+    <p class="hero-sub">Бітіруші Түлектердің Мерекелік Кеші</p>
+    <div class="ornament"><div class="ornament-diamond"></div></div>
+  </div>
+
+  <div class="scroll-ind">
+    <span class="scroll-dot"></span>
+    <span>Төмен</span>
+  </div>
+</section>
+
+<!-- ══════════ VIDEO ══════════ -->
+<section id="video-section">
+  <div class="video-wrap reveal">
+    <div class="video-frame-outer">
+      <div class="video-corner vc-tl"></div>
+      <div class="video-corner vc-tr"></div>
+      <div class="video-corner vc-bl"></div>
+      <div class="video-corner vc-br"></div>
+      <iframe
+        src="https://www.youtube.com/embed/JqfxWEq-rF0?si=8-YNPN8aSAHDNlh0"
+        title="Бітіруші Түлектер 2026"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="video-ornament">
+      <div class="video-ornament-dot"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ DETAILS ══════════ -->
+<section id="details">
+  <div class="details-wrap">
+    <div class="reveal">
+      <div class="section-tag">Мерекелік кеш</div>
+      <h2 class="section-h">Мән-жайы</h2>
+      <div class="cards-stack">
+        <div class="info-card">
+          <div class="card-label">Өтетін орны</div>
+          <div class="card-val">АКТ залы</div>
+          <div class="card-sub">М.Әуезов атындағы мектеп</div>
+          <a href="https://2gis.kz/semey/geo/70000001098461914/82.614575,47.813763" target="_blank" class="map-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            Картадан ашу (2GIS)
+          </a>
         </div>
-    </header>
-
-    <!-- 1-БЛОК: БАСТЫ ЭКРАН / HERO SECTION -->
-    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        <!-- Background Image with Gradient Fallback (If image fails to load, background gradient remains beautiful) -->
-        <div class="absolute inset-0 bg-center bg-cover bg-no-repeat bg-zoom" style="background-image: url('./images1.jpg'), linear-gradient(135deg, #0a1128 0%, #172242 100%);"></div>
-        <!-- Gradient Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-b from-brand-navy/80 via-brand-navy/50 to-brand-navy/95"></div>
-        
-        <div class="relative z-10 text-center px-4 w-full max-w-4xl mx-auto flex flex-col items-center">
-            <div class="fade-in-down w-full">
-                <span class="text-sm md:text-base uppercase tracking-[0.4em] text-brand-gold/90 mb-6 block font-semibold drop-shadow-md">
-                    2026 Жылғы Түлектер
-                </span>
-                <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-serif font-bold text-white mb-6 tracking-wider gold-text-gradient drop-shadow-2xl">
-                    ШАҚЫРТУ
-                </h1>
-                <p class="text-lg sm:text-2xl text-gray-200 font-light tracking-wide mb-14 max-w-2xl mx-auto opacity-90">
-                    2026 жылғы түлектерді бітіру кешіне шақырамыз
-                </p>
-            </div>
+        <div class="info-card">
+          <div class="card-label">Басталу уақыты</div>
+          <div class="card-val">Сағат 15:00</div>
+          <div class="card-sub">25 мамыр, 2026 жыл</div>
         </div>
-        
-        <!-- Scroll Down Indicator -->
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
-            <a href="#details" class="text-brand-gold/70 hover:text-brand-gold transition-colors">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
-            </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ WISHES ══════════ -->
+<section id="wishes">
+  <div class="wishes-wrap reveal">
+
+    <div class="wish-deco">
+      <div class="wish-deco-line">
+        <div class="wish-deco-center">
+          <div class="wish-deco-star-sm"></div>
+          <div class="wish-deco-star"></div>
+          <div class="wish-deco-star-sm"></div>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <!-- 2-БЛОК: АҚПАРАТТЫҚ БӨЛІМ / EVENT DETAILS -->
-    <section id="details" class="py-28 bg-brand-light text-brand-navy relative overflow-hidden">
-        <!-- Abstract BG elements -->
-        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-gold/5 rounded-full blur-[100px] pointer-events-none"></div>
-        <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-navy/5 rounded-full blur-[80px] pointer-events-none"></div>
+    <div class="wish-section-tag">Мектеп ұжымынан</div>
+    <div class="wish-section-h">Тілектер</div>
 
-        <div class="max-w-5xl mx-auto px-6 relative z-10">
-            <div class="text-center mb-20 reveal">
-                <h2 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-brand-navy mb-6">Мерекелік Кештің Мән-жайы</h2>
-                <div class="w-32 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent mx-auto rounded-full"></div>
-            </div>
+    <div class="wish-card">
+      <div class="wish-card-corner wcc-tl"></div>
+      <div class="wish-card-corner wcc-tr"></div>
+      <div class="wish-card-corner wcc-bl"></div>
+      <div class="wish-card-corner wcc-br"></div>
 
-            <div class="grid md:grid-cols-2 gap-10 lg:gap-16">
-                <!-- Location Card (2GIS Clickable Link with Hover Reveal) -->
-                <a href="https://2gis.kz/semey/geo/70000001098461914/82.614575,47.813763" target="_blank" rel="noopener noreferrer" class="block group reveal reveal-delay-1">
-                    <div class="bg-white rounded-3xl p-12 shadow-[0_10px_40px_-10px_rgba(10,17,40,0.1)] flex flex-col items-center text-center transform hover:-translate-y-3 hover:shadow-[0_20px_50px_-10px_rgba(212,175,55,0.25)] transition-all duration-500 border border-transparent hover:border-brand-gold/30 h-full relative overflow-hidden">
-                        
-                        <!-- Hover background glow -->
-                        <div class="absolute inset-0 bg-gradient-to-b from-brand-gold/0 to-brand-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <p class="wish-text" id="wish-p">
+        Түлектер, сендермен өткен әр күн — күшті естелік болды 🤍<br><br>
+        Кеше ғана мектепке асығып келетін едік, бүгін міне қоштасатын уақыт келді…
+        Уақыттың қалай өткенін де байқамай қалыппыз.<br><br>
+        Алда әрқайсыңның өз жолдарың, өз армандарың тұр.
+        Бірақ қайда жүрсеңдер де, осы мектептегі күлкі, достық, вайб ешқашан ұмытылмасын ✨<br><br>
+        Сендерге тек биік ұшу, әдемі өмір, шынайы бақыт тілейміз.
+        Армандарың орындалып, есімдеріңді үлкен жетістіктермен естіртейік! 🎓💫
+      </p>
+    </div>
 
-                        <div class="w-24 h-24 rounded-full bg-brand-light border-2 border-brand-gold/20 flex items-center justify-center mb-8 text-brand-gold group-hover:scale-110 group-hover:bg-brand-gold group-hover:text-white transition-all duration-500 shadow-inner relative z-10">
-                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        </div>
-                        <h3 class="text-2xl font-bold uppercase tracking-[0.15em] mb-4 text-brand-navy relative z-10">Өтетін орны</h3>
-                        <p class="text-xl text-gray-600 font-medium leading-relaxed relative z-10 mb-6">М.Әуезов атындағы мектеп,<br><span class="font-bold text-brand-navy">АКТ залы</span></p>
-                        
-                        <!-- Mini Interactive Label -->
-                        <div class="mt-auto px-5 py-2.5 bg-brand-gold/10 text-brand-navy rounded-full text-xs font-bold tracking-widest flex items-center gap-2 group-hover:bg-brand-gold group-hover:text-white transition-all duration-300 relative z-10">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
-                            КАРТАДАН АШУ (2GIS)
-                        </div>
-                    </div>
-                </a>
+    <div class="wish-bottom">
+      <div class="wish-bottom-line">
+        <div class="wish-diamond"></div>
+      </div>
+      <div class="wish-by">Мектеп ұжымы · 2026</div>
+    </div>
+  </div>
+</section>
 
-                <!-- Time Card -->
-                <div class="bg-white rounded-3xl p-12 shadow-[0_10px_40px_-10px_rgba(10,17,40,0.1)] flex flex-col items-center text-center transform hover:-translate-y-3 hover:shadow-[0_20px_50px_-10px_rgba(212,175,55,0.25)] transition-all duration-500 border border-transparent hover:border-brand-gold/30 group reveal reveal-delay-2 h-full">
-                    <div class="w-24 h-24 rounded-full bg-brand-light border-2 border-brand-gold/20 flex items-center justify-center mb-8 text-brand-gold group-hover:scale-110 group-hover:bg-brand-gold group-hover:text-white transition-all duration-500 shadow-inner">
-                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </div>
-                    <h3 class="text-2xl font-bold uppercase tracking-[0.15em] mb-4 text-brand-navy">Басталу уақыты</h3>
-                    <p class="text-5xl font-serif font-bold text-brand-navy group-hover:text-brand-gold transition-colors duration-300">15:00</p>
-                    <div class="mt-auto px-6 py-2.5 bg-brand-navy/5 rounded-full">
-                        <p class="text-xs font-bold uppercase tracking-widest text-brand-gold">25 мамыр, 2026 жыл</p>
-                    </div>
-                </div>
-            </div>
+<!-- ══════════ ORGANIZERS ══════════ -->
+<section id="organizers">
+  <div class="reveal">
+    <div class="section-tag">Ұйымдастырушылар</div>
+    <h2 class="section-h">Концерт авторлары</h2>
+    <div>
+      <div class="org-card">
+        <div class="org-icon">🎓</div>
+        <div>
+          <div class="org-name">10-сынып оқушылары</div>
+          <div class="org-sub">М.Әуезов атындағы мектеп · 2025–2026</div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- 3-БЛОК: ТІЛЕКТЕР / GREETINGS & WISHES -->
-    <section id="wishes" class="py-32 bg-brand-navy relative overflow-hidden flex items-center min-h-[80vh]">
-        <!-- Animated Decorative Elements -->
-        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-            <div class="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-brand-gold/10 blur-[120px] animate-pulse-glow"></div>
-            <div class="absolute bottom-0 right-1/4 w-96 h-96 rounded-full bg-[#ffecd2]/5 blur-[100px] animate-pulse-glow" style="animation-delay: 2s;"></div>
-        </div>
+<footer>
+  <div class="f-logo">Түлектер 2026</div>
+  <div class="f-copy">© 2026 Бітіру Кеші. Барлық құқықтар қорғалған.</div>
+</footer>
 
-        <div class="max-w-5xl mx-auto px-6 relative z-10 w-full reveal">
-            <div class="glass-panel p-12 md:p-20 rounded-[2.5rem] border border-brand-gold/30 shadow-[0_0_50px_rgba(212,175,55,0.1)] relative transform transition-transform duration-700 hover:scale-[1.02]">
-                <!-- Floating Quote Mark Icon -->
-                <div class="absolute -top-10 left-1/2 animate-float bg-gradient-to-br from-brand-gold to-[#aa771c] text-white w-20 h-20 rounded-full flex items-center justify-center text-5xl font-serif shadow-[0_10px_25px_rgba(212,175,55,0.4)] border-4 border-brand-navy">
-                    "
-                </div>
-                
-                <blockquote class="text-center pt-8">
-                    <p class="text-lg sm:text-xl md:text-2xl font-light leading-relaxed text-gray-100 tracking-wide font-sans italic">
-                        "Түлектер, сендермен өткен әр күн — күшті естелік болды <span class="text-brand-gold">🤍</span> Кеше ғана мектепке асығып келетін едік, бүгін міне қоштасатын уақыт келді… Уақыттың қалай өткенін де байқамай қалыппыз. Алда әрқайсыңның өз жолдарың, өз армандарың тұр. Бірақ қайда жүрсеңдер де, осы мектептегі күлкі, достық, вайб ешқашан ұмытылмасын <span class="text-brand-gold">✨</span> Сендерге тек биік ұшу, әдемі өмір, шынайы бақыт тілейміз. Армандарың орындалып, есімдеріңді үлкен жетістіктермен естіртейік! <span class="text-brand-gold">🎓💫</span>"
-                    </p>
-                </blockquote>
-            </div>
-        </div>
-    </section>
+<script>
+/* ── STATIC STAR FIELD (background dots) ── */
+const pCont = document.getElementById('particles');
+for(let i=0;i<280;i++){
+  const s=document.createElement('div');
+  s.className='sdot';
+  const sz=(Math.random()*1.6+0.3).toFixed(1);
+  const ta=(Math.random()*0.25+0.05).toFixed(2);
+  const tb=(Math.random()*0.6+0.2).toFixed(2);
+  s.style.cssText=`
+    width:${sz}px;height:${sz}px;
+    top:${(Math.random()*100).toFixed(2)}%;
+    left:${(Math.random()*100).toFixed(2)}%;
+    --td:${(Math.random()*4+2).toFixed(1)}s;
+    --tdelay:${(Math.random()*8).toFixed(1)}s;
+    --ta:${ta};--tb:${tb};
+  `;
+  pCont.appendChild(s);
+}
 
-    <!-- 4-БЛОК: ҰЙЫМДАСТЫРУШЫЛАР / FOOTER & ORGANIZERS -->
-    <section id="organizers" class="relative min-h-[70vh] flex flex-col items-center justify-center overflow-hidden bg-brand-navy">
-        <!-- Background Image with Gradient Fallback (If image fails to load, background gradient remains beautiful) -->
-        <div class="absolute inset-0 bg-center bg-cover bg-no-repeat bg-zoom opacity-50" style="background-image: url('./images2.jpg'), linear-gradient(135deg, #0a1128 0%, #151d38 100%);"></div>
-        <!-- Gradient Overlay with Vignette -->
-        <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/80 to-brand-navy/30"></div>
-        <div class="absolute inset-0 shadow-[inset_0_0_150px_rgba(10,17,40,1)]"></div>
+/* gold dust petals floating up */
+for(let i=0;i<35;i++){
+  const p=document.createElement('div');
+  p.className='petal';
+  const sz=(Math.random()*3+1.5).toFixed(1);
+  const drift=((Math.random()-0.5)*180).toFixed(0)+'px';
+  p.style.cssText=`
+    --s:${sz}px;
+    --d:${(Math.random()*14+10).toFixed(1)}s;
+    --delay:${(Math.random()*12).toFixed(1)}s;
+    --drift:${drift};
+    --op:${(Math.random()*0.45+0.1).toFixed(2)};
+    left:${(Math.random()*100).toFixed(1)}%;
+  `;
+  pCont.appendChild(p);
+}
 
-        <div class="relative z-10 w-full max-w-5xl mx-auto py-24 flex flex-col items-center px-6 text-center reveal">
-            <!-- Organizer Text -->
-            <div class="glass-panel px-10 py-12 rounded-[2rem] border border-brand-gold/30 inline-block shadow-[0_20px_50px_rgba(0,0,0,0.5)] backdrop-blur-xl hover:border-brand-gold/60 transition-colors duration-500">
-                <h2 class="text-2xl sm:text-4xl md:text-5xl font-serif font-bold tracking-widest leading-snug text-gray-200">
-                    Концертті ұйымдастырушылар<br>
-                    <span class="w-16 h-1 bg-brand-gold mx-auto rounded-full my-6 block"></span>
-                    <span class="gold-text-gradient block text-4xl sm:text-6xl drop-shadow-lg">10-сынып оқушылары</span>
-                </h2>
-            </div>
-        </div>
-        
-        <!-- Footer Bar -->
-        <div class="absolute bottom-0 left-0 w-full bg-brand-navy/95 backdrop-blur-md border-t border-brand-gold/20 py-6 text-center z-10">
-            <p class="text-xs md:text-sm text-brand-gold/60 tracking-[0.2em] uppercase font-medium">© 2026 Бітіру Кеші. Барлық құқықтар қорғалған.</p>
-        </div>
-    </section>
+/* ── FLYING STARS (ұшып өтетін нүктелер) ── */
+const sCont=document.getElementById('stars');
+const dirs=[
+  ['-120vw','-60vh'],['-100vw','40vh'],['120vw','-50vh'],
+  ['80vw','70vh'],['-90vw','20vh'],['100vw','-80vh'],
+  ['-110vw','80vh'],['90vw','30vh'],['-80vw','-40vh'],
+  ['110vw','60vh'],['-70vw','-70vh'],['70vw','-20vh'],
+];
+for(let i=0;i<28;i++){
+  const f=document.createElement('div');
+  f.className='fstar';
+  const sz=(Math.random()*2.5+1).toFixed(1);
+  const d=dirs[i%dirs.length];
+  const gold=Math.random()>0.65;
+  f.style.cssText=`
+    width:${sz}px;height:${sz}px;
+    top:${(Math.random()*100).toFixed(1)}%;
+    left:${(Math.random()*100).toFixed(1)}%;
+    --fd:${(Math.random()*12+8).toFixed(1)}s;
+    --fdelay:${(Math.random()*15).toFixed(1)}s;
+    --fx:${d[0]};--fy:${d[1]};
+    --fop:${(Math.random()*0.55+0.2).toFixed(2)};
+    background:radial-gradient(circle,${gold?'rgba(232,201,122,0.95)':'rgba(255,255,255,0.95)'} 0%,${gold?'rgba(201,168,76,0.3)':'rgba(200,200,255,0.2)'} 50%,transparent 100%);
+  `;
+  sCont.appendChild(f);
+}
 
-    <script>
-        // --- Scroll Reveal Animation Logic ---
-        document.addEventListener('DOMContentLoaded', () => {
-            const reveals = document.querySelectorAll('.reveal');
-            
-            const revealOnScroll = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
-                });
-            }, {
-                threshold: 0.15,
-                rootMargin: "0px 0px -50px 0px"
-            });
 
-            reveals.forEach(reveal => {
-                revealOnScroll.observe(reveal);
-            });
+
+/* ── NAVBAR ── */
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60);
+});
+
+/* ── REVEAL ON SCROLL ── */
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
+
+/* ── WORD-BY-WORD WISH ANIMATION ── */
+const wishObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting) return;
+    const p=document.getElementById('wish-p');
+    const html=p.innerHTML;
+    const temp=document.createElement('div');
+    temp.innerHTML=html;
+    let delay=0;
+    function processNode(node){
+      if(node.nodeType===3){
+        const words=node.textContent.split(/(\s+)/);
+        const frag=document.createDocumentFragment();
+        words.forEach(w=>{
+          if(w.trim()){
+            const sp=document.createElement('span');
+            sp.textContent=w;
+            sp.style.animationDelay=delay+'ms';
+            delay+=60;
+            frag.appendChild(sp);
+          } else if(w) {
+            frag.appendChild(document.createTextNode(w));
+          }
         });
+        node.parentNode.replaceChild(frag,node);
+      } else if(node.nodeType===1 && node.tagName!=='BR'){
+        Array.from(node.childNodes).forEach(processNode);
+      }
+    }
+    Array.from(temp.childNodes).forEach(processNode);
+    p.innerHTML=temp.innerHTML;
+    wishObs.unobserve(e.target);
+  });
+},{threshold:0.1});
+const wishReveal=document.getElementById('wish-p').closest('.reveal');
+if(wishReveal) wishObs.observe(wishReveal);
 
-        // --- Custom Notification ---
-        function showNotification(message) {
-            const toast = document.createElement('div');
-            toast.className = "fixed top-24 left-1/2 transform -translate-x-1/2 z-50 bg-gradient-to-r from-[#d4af37] to-[#aa771c] text-brand-navy font-bold px-8 py-4 rounded-full shadow-[0_10px_30px_rgba(212,175,55,0.4)] border border-white/30 transition-all duration-500 opacity-0 scale-90 flex items-center gap-2";
-            toast.innerText = message;
-            document.body.appendChild(toast);
-            
-            setTimeout(() => {
-                toast.classList.replace('opacity-0', 'opacity-100');
-                toast.classList.replace('scale-90', 'scale-100');
-            }, 50);
 
-            setTimeout(() => {
-                toast.classList.replace('opacity-100', 'opacity-0');
-                toast.classList.replace('scale-100', 'scale-90');
-                setTimeout(() => toast.remove(), 500);
-            }, 3000);
-        }
-
-        // --- Confetti System ---
-        const canvas = document.getElementById('confettiCanvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-
-        let confettiParticles = [];
-        let confettiAnimation;
-
-        function initConfetti() {
-            confettiParticles = [];
-            const colors = ['#d4af37', '#fcf6ba', '#ffffff', '#aa771c'];
-            for (let i = 0; i < 200; i++) {
-                confettiParticles.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height - canvas.height,
-                    r: Math.random() * 6 + 3,
-                    dx: Math.random() * 2 - 1,
-                    dy: Math.random() * 4 + 2,
-                    color: colors[Math.floor(Math.random() * colors.length)],
-                    tilt: Math.floor(Math.random() * 10) - 10,
-                    tiltAngleInc: (Math.random() * 0.07) + 0.05,
-                    tiltAngle: 0
-                });
-            }
-        }
-
-        function animateConfetti() {
-            confettiAnimation = requestAnimationFrame(animateConfetti);
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            for (let i = 0; i < confettiParticles.length; i++) {
-                let p = confettiParticles[i];
-                p.tiltAngle += p.tiltAngleInc;
-                p.y += p.dy;
-                p.x += Math.sin(p.tiltAngle) * 2;
-
-                ctx.beginPath();
-                ctx.lineWidth = p.r;
-                ctx.strokeStyle = p.color;
-                ctx.moveTo(p.x + p.tilt + p.r, p.y);
-                ctx.lineTo(p.x + p.tilt, p.y + p.tilt + p.r);
-                ctx.stroke();
-
-                if (p.y > canvas.height) {
-                    p.y = -10;
-                    p.x = Math.random() * canvas.width;
-                }
-            }
-        }
-
-        function triggerConfetti() {
-            if (confettiAnimation) {
-                cancelAnimationFrame(confettiAnimation);
-            }
-            initConfetti();
-            animateConfetti();
-            
-            showNotification('Мереке құтты болсын! 🎉');
-            
-            setTimeout(() => {
-                cancelAnimationFrame(confettiAnimation);
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-            }, 7000);
-        }
-
-        // Trigger on load
-        window.onload = function() {
-            setTimeout(triggerConfetti, 1200);
-        };
-    </script>
+</script>
 </body>
 </html>
